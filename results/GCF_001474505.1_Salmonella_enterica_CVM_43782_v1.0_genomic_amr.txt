@@ -1,0 +1,3 @@
+Protein id	Contig id	Start	Stop	Strand	Element symbol	Element name	Scope	Type	Subtype	Class	Subclass	Method	Target length	Reference sequence length	% Coverage of reference	% Identity to reference	Alignment length	Closest reference accession	Closest reference name	HMM accession	HMM description
+NA	NZ_JYQZ01000011.1	9349	10545	+	tet(A)	tetracycline efflux MFS transporter Tet(A)	core	AMR	AMR	TETRACYCLINE	TETRACYCLINE	EXACTX	399	399	100.00	100.00	399	WP_000804064.1	tetracycline efflux MFS transporter Tet(A)	NA	NA
+NA	NZ_JYQZ01000062.1	107	919	+	aph(3')-Ia	aminoglycoside O-phosphotransferase APH(3')-Ia	core	AMR	AMR	AMINOGLYCOSIDE	KANAMYCIN	EXACTX	271	271	100.00	100.00	271	WP_000018329.1	aminoglycoside O-phosphotransferase APH(3')-Ia	NA	NA
