@@ -11,6 +11,6 @@ plt.ylabel("Gene Count")
 plt.xlabel("Antibiotic Class")
 
 plt.tight_layout()
-plt.savefig("amr_class_distribution.png", dpi=300)
+plt.savefig("figures/amr_class_distribution.png", dpi=300)
 
 plt.show()

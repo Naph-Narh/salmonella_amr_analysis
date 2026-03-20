@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load your data
-df_genes = pd.read_csv("amr_gene_presence.csv")          # Genome-Gene presence
-df_map = pd.read_csv("gene_antibiotic_class.csv")        # Gene -> Class mapping
+df_genes = pd.read_csv("amr_gene_presence.csv")
+df_map = pd.read_csv("gene_antibiotic_class.csv")
 
 # Merge to get classes for each gene
 df_merged = pd.merge(df_genes, df_map, on="Gene", how="left")
@@ -17,10 +17,8 @@ class_counts = df_merged['Class'].value_counts()
 # Convert to percentages
 class_percent = class_counts / class_counts.sum() * 100
 
-# Identify small classes (<2%)
+# Identify and save small classes (<2%)
 small_classes = class_percent[class_percent < 3].index
-
-# Save genes belonging to those classes
 others_table = df_merged[df_merged["Class"].isin(small_classes)][["Gene","Class"]].drop_duplicates()
 others_table.to_csv("amr_other_classes_table.csv", index=False)
 
@@ -42,5 +40,5 @@ plt.pie(
 )
 plt.title("Gene-Class Composition Across 100 Salmonella Genomes")
 plt.tight_layout()
-plt.savefig("amr_gene_class_composition.png", dpi=300)
+plt.savefig("figures/amr_gene_class_composition.png", dpi=300)
 plt.show()

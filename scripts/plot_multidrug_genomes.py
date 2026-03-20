@@ -2,15 +2,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# ======================
 # Load data
-# ======================
 df_genes = pd.read_csv("amr_gene_presence.csv")  # genome-gene mapping
 df_map = pd.read_csv("gene_antibiotic_class.csv")  # gene-class mapping
 
-# ======================
 # Merge gene presence with classes
-# ======================
 df_merged = df_genes.merge(df_map, on="Gene", how="left")
 
 # Drop genes without a mapped class
@@ -18,17 +14,14 @@ df_merged = df_merged.dropna(subset=["Class"])
 
 # Truncate genome name to accession number
 df_merged["Genome"] = df_merged["Genome"].str.extract(r"(GC[AF]_\d+\.\d+)")
-# ======================
+
 # Count resistance classes per genome
-# ======================
 resistance_counts = df_merged.groupby("Genome")["Class"].nunique().sort_values(ascending=False)
 
 # Save to CSV
 resistance_counts.to_csv("resistance_count_per_genome.csv", header=True)
 
-# ======================
 # Plot horizontal bar chart
-# ======================
 top_n = 30
 top_genomes = resistance_counts.head(top_n)
 
@@ -51,7 +44,7 @@ for i, v in enumerate(top_genomes[::-1]):
 plt.xlabel("Number of Resistance Classes")
 plt.ylabel("Genome Accession")
 plt.title(f"Top {top_n} Multidrug-Resistant Salmonella Genomes")
-
 plt.tight_layout()
-plt.savefig("multidrug-resistant_salmonella_genome", dpi=300)
+plt.savefig("figures/multidrug-resistant_salmonella_genome", dpi=300)
+
 plt.show()

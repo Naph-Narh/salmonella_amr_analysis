@@ -1,0 +1,6 @@
+matplotlib==3.10.8
+networkx @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_networkx_1765215107/work
+numpy @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_numpy_1770098474/work/dist/numpy-2.4.2-python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_python-dateutil_1751104122/work
+scipy @ file:///home/conda/feedstock_root/build_artifacts/scipy-split_1771879147109/work/dist/scipy-1.17.1-cp314-cp314-linux_x86_64.whl#sha256=b1fa905adcc0e6c7d6ed50453bab0a519f76f705e575f8241a29a4065b6c841c
+seaborn @ file:///home/conda/feedstock_root/build_artifacts/seaborn-split_1733730015268/work
+

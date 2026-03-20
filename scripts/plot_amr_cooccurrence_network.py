@@ -13,14 +13,11 @@ df = df.dropna(subset=["Class"])
 # Genome → resistance classes
 genome_classes = df.groupby("Genome")["Class"].unique()
 
-# -------------------------
 # Node frequency (for size)
 # -------------------------
 class_freq = df["Class"].value_counts()
 
-# -------------------------
 # Co-occurrence counts
-# -------------------------
 pair_counts = {}
 
 for classes in genome_classes:
@@ -35,24 +32,16 @@ pairs_df = pd.DataFrame(
 # keep stronger links
 pairs_df = pairs_df[pairs_df["Weight"] >= 5]
 
-# -------------------------
 # Build network
-# -------------------------
 G = nx.Graph()
 
 for _, row in pairs_df.iterrows():
     G.add_edge(row["Class1"], row["Class2"], weight=row["Weight"])
 
-# -------------------------
 # Node size scaling
-# -------------------------
 node_sizes = [class_freq[n]*50 for n in G.nodes()]
 
-# Optional node coloring
-node_colors="lightblue"
-# -------------------------
 # Plot
-# -------------------------
 plt.figure(figsize=(8,8))
 
 pos = nx.spring_layout(G, seed=42, k=0.2)
@@ -82,7 +71,6 @@ nx.draw_networkx_edges(
     connectionstyle="arc3,rad=0.1"
 )
 
-# Edge labels (number of genomes sharing both classes)
 edge_labels = {(u, v): d["weight"] for u, v, d in G.edges(data=True)}
 
 nx.draw_networkx_edge_labels(
@@ -95,6 +83,6 @@ nx.draw_networkx_edge_labels(
 plt.title("Co-occurrence Network of Antibiotic Resistance Classes")
 plt.axis("off")
 plt.tight_layout()
-plt.savefig("amr_class_network.png", dpi=300)
+plt.savefig("figures/amr_class_network.png", dpi=300)
 
 plt.show()
