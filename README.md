@@ -32,6 +32,5 @@ python3 scripts/run_amrfinder.py
 # Process results and generate figures
 python3 scripts/data_processing.py
 
-## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
