@@ -19,9 +19,7 @@ This repository contains a genomic analysis of antimicrobial resistance (AMR) ge
 
 ## Folder Structure
 
-- `data/`: genome metadata
 - `scripts/`: analysis scripts
-- `results/`: raw and processed AMRFinderPlus output
 - `figures/`: plots 
 - `report/`: final report
 
