@@ -21,7 +21,6 @@ This repository contains a genomic analysis of antimicrobial resistance (AMR) ge
 
 - `scripts/`: analysis scripts
 - `figures/`: plots 
-- `report/`: final report
 
 ## Usage
 
